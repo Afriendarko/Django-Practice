@@ -1,0 +1,20 @@
+<html>
+<body>
+
+{{ tag_vars }}
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'demoapp/style.css' %}">
+
+<h1 style= "color:white;" >hii this is from templates</h1>
+
+<form method="post">
+
+    {{ formset }}
+    {% csrf_token %}
+    <input type="submit" value="Submit">
+
+</form>
+
+</body>
+</html>

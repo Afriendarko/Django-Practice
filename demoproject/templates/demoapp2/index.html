@@ -1,0 +1,19 @@
+<html>
+<body bgcolor="green">
+
+{{ tag_vars }}
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'demoapp2/style.css' %}">
+
+<h1 align="center" style= "color:white" >Wellcome To Our DJANGO Project</h1>
+
+<form action="/your-name/" method="post">
+
+    {{ form }}
+    <input type="submit" value="Submit">
+
+</form>
+
+</body>
+</html>

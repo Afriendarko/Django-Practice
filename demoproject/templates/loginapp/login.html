@@ -1,0 +1,23 @@
+<html>
+<body>
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'loginapp/login.css' %}">
+
+<h1 align="center">Wellcome to the world of TECHNOLOGY</h1>
+
+<form method="post">
+    <h2>Login</h2>
+    <div class="imgcontainer">
+    <img src="{% static 'loginapp/images/w6.PNG' %}" alt="Avatar" class="avatar">
+    </div>
+
+    {{ login_c }}
+    {% csrf_token %}
+<!--    <input type="submit" value="Login">-->
+    <button type="submit">Login</button>
+
+</form>
+
+</body>
+</html>
