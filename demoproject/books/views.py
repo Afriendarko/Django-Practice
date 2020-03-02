@@ -35,8 +35,7 @@ def book_update(request, pk, template_name='books/book_form.html'):
     return render(request, template_name, {'form':form})
 
 def book_delete(request, pk, template_name='books/book_confirm_delete.html'):
-    book=
-    (Book, pk=pk)
+    book = get_object_or_404(Book, pk=pk)
     if request.method=='POST':
         book.delete()
         return redirect('book_list')

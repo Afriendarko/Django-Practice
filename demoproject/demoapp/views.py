@@ -1,5 +1,9 @@
 from django.shortcuts import render, redirect
+from rest_framework import generics
 from . import forms
+from .forms import NameForm
+from .models import Songs
+from .serializers import SongsSerializer
 # Create your views here.
 
 from django.http import HttpResponse
@@ -13,7 +17,6 @@ def teapp(request):
     return render(request, "demoapp/index.html", context)
 
 
-from .forms import NameForm
 
 def get_name(request):
     # context = {'form':"form"}
@@ -33,17 +36,6 @@ def modform(request):
         form=forms.mf()
     return render(request, "demoapp/index.html", {'formset':form})
 
-
-#
-# def create(request):
-#     if request.method=="POST":
-#         form=forms.Loginform(request.POST)
-#         if form.is_valid():
-#             try:
-#                 form.save()
-#                 return redirect('/success')
-#             except:
-#                 print("error here")
-#     else:
-#         form=forms.Loginform()
-#     return render(request, 'myapp/home.html', {'form':form})
+class ListSongsView(generics.ListAPIView):
+    queryset = Songs.objects.all()
+    serializer_class = SongsSerializer
