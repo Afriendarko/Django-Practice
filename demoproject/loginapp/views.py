@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 # Create your views here.
 
 def index(request):
-    context = {'user': request.User}
+    context = {'user': request.user }
     return render(request, "loginapp/success.html", context)
 
 
@@ -14,7 +14,7 @@ def user_login(request):
         form = AuthenticationForm(data=request.POST)
         if form.is_valid():
             return redirect('/loginapp/success')
-        print(val)
+
 
     else:
         form = AuthenticationForm()
